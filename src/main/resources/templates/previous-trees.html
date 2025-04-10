@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Previous Trees</title>
+</head>
+<body>
+<h2>Previously Submitted Trees</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Input Numbers</th>
+        <th>Tree (JSON)</th>
+    </tr>
+    <tr th:each="tree : ${trees}">
+        <td th:text="${tree.id}"></td>
+        <td th:text="${tree.inputNumbers}"></td>
+        <td><pre th:text="${tree.treeJson}"></pre></td>
+    </tr>
+</table>
+
+<br>
+<a href="/enter-numbers">Back to Input</a>
+</body>
+</html>

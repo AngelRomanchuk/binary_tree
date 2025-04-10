@@ -6,16 +6,15 @@
 <body>
 <h2>Enter Numbers to Build a Binary Search Tree</h2>
 
-<form method="get" action="/api/tree/build">
+<form method="post" action="/process-numbers">
     <label for="numbers">Numbers (comma-separated):</label><br>
     <input type="text" id="numbers" name="numbers" placeholder="e.g. 5,3,7,2,4"><br><br>
-
     <button type="submit">Submit</button>
 </form>
 
 <br>
 
-<form method="get" action="/api/tree/previous">
+<form method="get" action="/previous">
     <button type="submit">Show Previous Trees</button>
 </form>
 </body>

@@ -45,4 +45,20 @@ public class BinarySearchTree {
         map.put("right", toMap(node.right));
         return map;
     }
+
+    public void buildBalancedTree(List<Integer> sortedValues) {
+        root = buildBalancedSubtree(sortedValues, 0, sortedValues.size() - 1);
+    }
+
+    private Node buildBalancedSubtree(List<Integer> values, int start, int end) {
+        if (start > end) return null;
+
+        int mid = (start + end) / 2;
+        Node node = new Node(values.get(mid));
+
+        node.left = buildBalancedSubtree(values, start, mid - 1);
+        node.right = buildBalancedSubtree(values, mid + 1, end);
+
+        return node;
+    }
 }
