@@ -92,24 +92,6 @@ GET /api/tree/previous
   - `input_numbers`: Original input (e.g., `1,2,3`)
   - `tree_json`: Stored tree in JSON format
 
-Example entry:
-
-```json
-{
-  "value": 4,
-  "left": {
-    "value": 2,
-    "left": { "value": 1 },
-    "right": { "value": 3 }
-  },
-  "right": {
-    "value": 6,
-    "left": { "value": 5 },
-    "right": { "value": 7 }
-  }
-}
-```
-
 ---
 
 ## ✅ Testing
@@ -127,14 +109,3 @@ Run them using:
 ```
 
 ---
-
-## 🧠 Bonus Feature
-
-- The BST built is **balanced** using a sorted insert strategy.
-- Prevents skewed trees for sorted input like `1,2,3,4,5`.
-
----
-
-## ✨ Credits
-
-Created as part of an individual Spring Boot project.
