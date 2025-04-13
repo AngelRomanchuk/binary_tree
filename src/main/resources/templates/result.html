@@ -2,13 +2,47 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>BST Result</title>
+  <style>
+    .node {
+        display: inline-block;
+        text-align: center;
+        margin: 10px;
+    }
+    .level {
+        display: flex;
+        justify-content: center;
+    }
+  </style>
 </head>
 <body>
 <h2>Binary Search Tree Result</h2>
 
 <p><strong>Input Numbers:</strong> <span th:text="${inputNumbers}"></span></p>
-<p><strong>Tree JSON:</strong></p>
-<pre th:text="${treeJson}"></pre>
+
+<div id="treeDisplay"></div>
+
+<script th:inline="javascript">
+  /*<![CDATA[*/
+    const rawJson = /*[[${treeJson}]]*/ '{}';
+    const treeJson = JSON.parse(rawJson);
+
+    function renderTree(node) {
+        if (!node) return "";
+
+        return `
+            <div class="node">
+                <div>${node.value}</div>
+                <div class="level">
+                    ${renderTree(node.left)}
+                    ${renderTree(node.right)}
+                </div>
+            </div>
+        `;
+    }
+
+    document.getElementById("treeDisplay").innerHTML = renderTree(treeJson);
+  /*]]>*/
+</script>
 
 <br>
 <a href="/enter-numbers">Back</a>
